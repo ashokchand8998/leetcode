@@ -10,15 +10,17 @@ this will help keep track of past and any new found anagram of a word
 additional function would be required for getting sorted string in our case
 */
 var groupAnagrams = function (strs) {
-    function getSorted(word) {
-        return word.split("").sort().join("");
+    getSortedStr = (str) => {
+        return str.split('').sort().join('');
     }
-    let final = new Map();
-    for (let word of strs) {
-        let sortedWord = getSorted(word);
-        let finalFound = final.get(sortedWord) || []
-        finalFound.push(word);
-        final.set(sortedWord, finalFound);
+
+    let resultHashMap = new Map();
+
+    for (let val of strs) {
+        let sortedStr = getSortedStr(val);
+        let existingArr = resultHashMap.get(sortedStr) || []
+        existingArr.push(val)
+        resultHashMap.set(sortedStr, existingArr);
     }
-    return [...final.values()];
+    return [...resultHashMap.values()]
 }
