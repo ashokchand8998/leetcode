@@ -3,22 +3,20 @@
  * @return {number[]}
  */
 
- /*
- use prefix and postfix products stored and then combined to get final result
- */
+/*
+use prefix and postfix products stored and then combined to get final result
+*/
 var productExceptSelf = function (nums) {
-    let result = [];
-    let prefix = 1;
-    let postfix = 1;
-    let n = nums.length
-    for(let i=0; i<n; i++) {
-        result[i] = prefix;
-        prefix *= nums[i];
+    let result = []
+    let preProd = 1;
+    let postProd = 1;
+    for (let val of nums) {
+        result.push(preProd);
+        preProd *= val;
     }
-
-    for(let j=n-1; j>=0; j--) {
-        result[j] *= postfix;
-        postfix *= nums[j];
+    for (let i = result.length - 2; i >= 0; i--) {
+        postProd *= nums[i+1];
+        result[i] *= postProd
     }
-    return result
+    return result;
 };
