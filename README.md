@@ -18,4 +18,12 @@ https://github.com/marketplace/actions/leetcode-sync
 |  |
 | ------- |
 | [0062-unique-paths](https://github.com/ashokchand8998/leetcode/tree/master/0062-unique-paths) |
+## Array
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/ashokchand8998/leetcode/tree/master/0001-two-sum) |
+## Hash Table
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/ashokchand8998/leetcode/tree/master/0001-two-sum) |
 <!---LeetCode Topics End-->
