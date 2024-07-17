@@ -5,19 +5,20 @@
 var lengthOfLongestSubstring = function (s) {
     let count = 0;
     let left = 0;
-    for (; left < s.length; left++) {
-        let tempCount = 1;
-        let hashSet = new Set();
-        hashSet.add(s[left])
-        let right = left + 1;
-        while (right< s.length && !hashSet.has(s[right])) {
-            tempCount++;
-            hashSet.add(s[right]);
-            // console.log("s[right]", s[right])
-            right++
+    let right = left + 1;
+    let hashMap = new Map();
+    if (s.length<2) {
+        return s.length;
+    }
+    hashMap.set(s[left], 0)
+    while (right < s.length) {
+        let val = s[right]
+        if (hashMap.has(val)) {
+            left = Math.max(left,hashMap.get(val) + 1);
         }
-        // console.log("tc", tempCount)
-        count = Math.max(count, tempCount)
+        hashMap.set(val, right);
+        count = Math.max(count, right - left + 1)
+        right++
     }
     return count;
 };
